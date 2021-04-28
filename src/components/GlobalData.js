@@ -55,7 +55,6 @@ export default function GlobalData() {
     setGlobalData(data.Global);
   };
 
-
   useEffect(() => {
     fetchGlobalData();
   }, []);
@@ -79,7 +78,6 @@ export default function GlobalData() {
               )
           })
         }
-
     </div>
   );
 }

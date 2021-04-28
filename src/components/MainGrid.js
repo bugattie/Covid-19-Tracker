@@ -4,6 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
 import GlobalData from './GlobalData';
+import { Chart } from './Chart';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,14 +23,14 @@ export default function CenteredGrid() {
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
-        <Grid item xs={4}>
+        <Grid item md={4} xs={12}>
           <Paper className={classes.paper}>
               <GlobalData />
           </Paper>
         </Grid>
-        <Grid item xs={8}>
+        <Grid item md={8} xs={12}>
           <Paper className={classes.paper}>
-              Country Data
+              <Chart />
           </Paper>
         </Grid>
       </Grid>
