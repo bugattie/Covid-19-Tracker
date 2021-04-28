@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   paper: {
-    height: 120,
+    height: 150,
     padding: theme.spacing(2),
     textAlign: 'center', 
     color: theme.palette.text.secondary,
@@ -38,7 +38,7 @@ const useStylesTypo = makeStyles({
     number: {
       color: '#003335',
       fontSize: 19,
-      lineHeight: 2,
+      lineHeight: 3,
       fontWeight: 'bold',
     }
   });
@@ -60,20 +60,26 @@ export default function GlobalData() {
     fetchGlobalData();
   }, []);
 
-console.log(globalData);
   return (
     <div className={classes.root}>
-      
-        <Paper className={classes.paper} elevation={3}>
-            <div className={typoClasses.root}>
-                <Typography variant="h4" gutterBottom className={typoClasses.number}>
-                    {globalData === undefined ? '.....' : <NumberFormat value={globalData.NewConfirmed} displayType={'text'} thousandSeparator={true}/>}
-                </Typography>
-                <Typography variant="subtitle2" gutterBottom  className={typoClasses.description}>
-                    New Confirmed
-                </Typography>
-            </div>
-        </Paper>
+        { globalData &&
+          Object.keys(globalData).map((key, ind) => {
+            if (ind % 2 !== 0)
+              return (
+                <Paper className={classes.paper} elevation={5} key={ind}>
+                  <div className={typoClasses.root}>
+                      <Typography variant="h4" gutterBottom className={typoClasses.number}>
+                          {globalData === undefined ? '.....' : <NumberFormat value={globalData[key]} displayType={'text'} thousandSeparator={true}/>}
+                      </Typography>
+                      <Typography variant="subtitle2" gutterBottom  className={typoClasses.description}>
+                          {key}
+                      </Typography>
+                  </div>
+                </Paper>
+              )
+          })
+        }
+
     </div>
   );
 }

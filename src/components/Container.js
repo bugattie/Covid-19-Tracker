@@ -10,8 +10,8 @@ export default function SimpleContainer() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="md">
-          <Typography component="div" style={{height: '100vh' }}>
+      <Container maxWidth="lg">
+          <Typography component="div" style={{ height: '100vh' }}>
             <MainGrid/>
           </Typography>
       </Container>
