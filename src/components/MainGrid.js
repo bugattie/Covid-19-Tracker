@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 
 import GlobalData from './GlobalData';
 import { Chart } from './Chart';
+import { CountryPicker } from './CountryPicker';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,6 +21,15 @@ const useStyles = makeStyles((theme) => ({
 export default function CenteredGrid() {
   const classes = useStyles();
 
+  let state = {
+    country: ''
+  }
+
+  const handleCountryChange = async (country) => {
+    console.log(country);
+    state.country = country
+  };
+
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
@@ -30,6 +40,11 @@ export default function CenteredGrid() {
         </Grid>
         <Grid item md={8} xs={12}>
           <Paper className={classes.paper}>
+              <CountryPicker handleCountryChange={handleCountryChange} />
+              <br/>
+              <br/>
+              <br/>
+              <br/>
               <Chart />
           </Paper>
         </Grid>
