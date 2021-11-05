@@ -33,9 +33,6 @@ jobs:
       with:
           # Yarn command
         cmd: install
-
-    - name: browser update
-      run: npx browserslist@latest --update-db
       
     - name: creating build
       run: sudo yarn run build
